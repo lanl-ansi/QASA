@@ -12,7 +12,7 @@ pip install -r requirements.txt
 ### Data Collection
 The script `collect_spin_table.py` is used to collect the QASA dataset. For example, the following command will collect statistics on spins 304, 305, 306, and 307 of the DW_2000Q machine for h values ranging from -1 to 1 with step size of 0.025. 1,000,000 samples are taken for each h value, an annealing time of 5 µs is used, every 100 samples a spin reversal transform is performed and if the call to D-Wave's API servers takes longer than 300 seconds, then the call will be resubmitted. The data will be outputted into  `qasa_data/spin_table.csv`, which will be created if it does not already exist. Note that all command line options have default values and are optional with the exception of the directory (-d) and the QPU profile (-p). Also note that if no spins are given with -ss, then the protocol will perform the data collection for the entire chip.
 ```
-python collect_spin_table.py -p DW_2000Q -hr 1.0 -hs 0.025 -d qasa_data -nr 1000000 -ss 304 305 306 307 -at 5 -srtr -to 300
+python collect_spin_table.py -p DW_2000Q -hr 1.0 -hs 0.025 -d qasa_data -nr 1000000 -ss 304 305 306 307 -at 5 -srtr 100 -to 300
 ```
 
 In this example, the output csv file will have the column headers `h`, `samples`, `spin_304`, `spin_305`, `spin_306`, `spin_307`.
