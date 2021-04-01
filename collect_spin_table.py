@@ -1,8 +1,6 @@
-import os, argparse, sys, math, csv
+import os, argparse, math, csv
 from dwave.cloud import Client
-import dwave_networkx
-import copy, random
-from collections import namedtuple, defaultdict
+from collections import namedtuple
 
 CALL_NUM_READS = 10000
 CALLS_PER_ROUND = 10
@@ -45,8 +43,6 @@ def main(args):
     spin_table_file = os.path.join(args.directory, SPIN_TABLE_FILENAME)
     h_visited = []
     if os.path.isfile(spin_table_file):
-        columns = defaultdict(list) # each value in each column is appended to a list
-
         with open(spin_table_file) as f:
             reader = csv.DictReader(f) # read rows into a dictionary format
             h_visited = [float(row['h']) for row in reader]
@@ -138,11 +134,11 @@ def main(args):
 def build_cli_parser():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('-p', '--profile', help='connection details to load from dwave.conf', default='DW_2000Q_LANL')
+    parser.add_argument('-p', '--profile', help='connection details to load from dwave.conf', required=true)
 
     parser.add_argument('-hr', '--h-range', help='the maximum magnitude of h values to sweep', type=float, default=2.0)
     parser.add_argument('-hs', '--h-step', help='step size between consecutive h values', type=float, default=0.025)
-    parser.add_argument('-d', '--directory', help='working directory')
+    parser.add_argument('-d', '--directory', help='working directory', required=true)
     parser.add_argument('-nr', '--num-reads', help='number of samples to take for each h value', type=int, default=100000)
     parser.add_argument('-ss', '--spin-set', help='a set of spins that is used to filter the hardware graph', nargs='+', type=int)
     parser.add_argument('-at', '--annealing-time', help='annealing time in microseconds', type=int, default=1)
