@@ -2,11 +2,9 @@
 QASA is a protocol for evaluating qubit performance across a quantum annealing device. Parameters such as effective temperature (β), input field bias (b), saturation (γ), and flux noise (η) are calculated by fitting the output statistics of each individual qubit. In particular, `collect_spin_table.py` applies a range of h values to each spin and counts the number of times the spin in the z basis is measured as -1 for each h value. `reconstruct_parameters.jl` uses maximum likelihood estimation to fit these empirical statistics to a parameterized model of the qubit as a mixture of quantum Gibbs distributions.
 
 ## Installation
-QASA requires `dwave-cloud-client` for connecting to D-Wave API servers. `JuMP` and `Ipopt` are used for optimization tasks.
-These requirements can be installed with,
-```
-pip install -r requirements.txt
-```
+QASA requires the python package `dwave-cloud-client v0.8` for connecting to D-Wave API servers. The julia packages `JuMP v0.21` and `Ipopt v0.6` are needed for the optimization tasks.
+
+
 ## Basic Usage
 
 ### Data Collection
