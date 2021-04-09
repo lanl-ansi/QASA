@@ -21,6 +21,18 @@ The script `reconstruct_parameters.jl` performs the maximum likelihood estimatio
  julia -p 4 reconstruct_parameters.jl -d qasa_data
 ```
 
+## Reference
+
+If you find this code useful in your work, we kindly request that you cite the following [paper](https://arxiv.org/abs/2104.03335):
+```
+@article{2104.03335,
+  title={Single-Qubit Fidelity Assessment of Quantum Annealing Hardware},
+  author={Nelson, Jon and Vuffray, Marc and Lokhov, Andrey Y. and Coffrin, Carleton},
+  journal={arXiv preprint arXiv:2104.03335},
+  year={2021}
+}
+```
+
 ## License
 QASA is provided under a BSD-ish license with a "modifications must be indicated" clause.  See the `LICENSE.md` file for the full text.
 This package is part of the Hybrid Quantum-Classical Computing suite, known internally as LA-CC-16-032.
