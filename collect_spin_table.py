@@ -134,11 +134,11 @@ def main(args):
 def build_cli_parser():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('-p', '--profile', help='connection details to load from dwave.conf', required=true)
+    parser.add_argument('-p', '--profile', help='connection details to load from dwave.conf', required=True)
 
     parser.add_argument('-hr', '--h-range', help='the maximum magnitude of h values to sweep', type=float, default=2.0)
     parser.add_argument('-hs', '--h-step', help='step size between consecutive h values', type=float, default=0.025)
-    parser.add_argument('-d', '--directory', help='working directory', required=true)
+    parser.add_argument('-d', '--directory', help='working directory', required=True)
     parser.add_argument('-nr', '--num-reads', help='number of samples to take for each h value', type=int, default=100000)
     parser.add_argument('-ss', '--spin-set', help='a set of spins that is used to filter the hardware graph', nargs='+', type=int)
     parser.add_argument('-at', '--annealing-time', help='annealing time in microseconds', type=int, default=1)
