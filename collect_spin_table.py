@@ -141,7 +141,7 @@ def build_cli_parser():
     parser.add_argument('-d', '--directory', help='working directory', required=True)
     parser.add_argument('-nr', '--num-reads', help='number of samples to take for each h value', type=int, default=100000)
     parser.add_argument('-ss', '--spin-set', help='a set of spins that is used to filter the hardware graph', nargs='+', type=int)
-    parser.add_argument('-at', '--annealing-time', help='annealing time in microseconds', type=int, default=1)
+    parser.add_argument('-at', '--annealing-time', help='annealing time in microseconds', type=float, default=1)
     parser.add_argument('-srtr', '--spin-reversal-transform-rate', help='the number of reads to take before each spin reversal transform', type=int)
     parser.add_argument('-to', '--timeout', help='the number of seconds before request to D-wave is resubmitted', type=int, default=3000)
     return parser
